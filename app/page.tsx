@@ -266,6 +266,9 @@ export default function PortfolioPage() {
                       Apache
                     </Badge>
                     <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">
+                      React
+                    </Badge>
+                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">
                       PHPMyAdmin
                     </Badge>
                     <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">
@@ -312,7 +315,7 @@ export default function PortfolioPage() {
                         { type: "image", src: "/amas/docker.png?height=200&width=400&text=wrvwrv" },
                         { type: "video", src: "/amas/amas.mp4", poster: "/amas/dashboard.png?height=200&width=400&text=tetet", },
                       ]}
-                      alt="E-commerce Platform"
+                      alt="Amas"
                       autoPlayInterval={3000} // 3 segundos para imagens
                       videoDuration={5000} // 5 segundos para vídeos
                     />
@@ -329,7 +332,8 @@ export default function PortfolioPage() {
                           <Badge variant="outline">Apache</Badge>
                           <Badge variant="outline">Bootstrap</Badge>
                         </div>
-                        <div className="flex gap-2 pt-4">
+                        
+                        {/* <div className="flex gap-2 pt-4">
                           <Button variant="outline" size="sm" className="gap-1">
                             <Github className="h-4 w-4" />
                             {t("code")}
@@ -338,7 +342,7 @@ export default function PortfolioPage() {
                             <ExternalLink className="h-4 w-4" />
                             {t("demo")}
                           </Button>
-                        </div>
+                        </div>*/}
                       </div>
                     </CardContent>
                   </Card>
@@ -360,7 +364,7 @@ export default function PortfolioPage() {
                         { type: "video", src: "/techdente/tech.mp4", poster: "/techdente/painel.png?height=200&width=400&text=tetet",
                         },
                       ]}
-                      alt="CRM System"
+                      alt="TechDente"
                       autoPlayInterval={3000} // 3 segundos para imagens
                       videoDuration={5000} // 5 segundos para vídeos
                     />
@@ -378,7 +382,7 @@ export default function PortfolioPage() {
                           <Badge variant="outline">Apache</Badge>
                           <Badge variant="outline">Bootstrap</Badge>
                         </div>
-                        <div className="flex gap-2 pt-4">
+                        {/*<div className="flex gap-2 pt-4">
                           <Button variant="outline" size="sm" className="gap-1">
                             <Github className="h-4 w-4" />
                             {t("code")}
@@ -387,7 +391,7 @@ export default function PortfolioPage() {
                             <ExternalLink className="h-4 w-4" />
                             {t("demo")}
                           </Button>
-                        </div>
+                        </div>*/}
                       </div>
                     </CardContent>
                   </Card>
@@ -397,12 +401,20 @@ export default function PortfolioPage() {
                   <Card className="overflow-hidden">
                     <ProjectCarousel
                       media={[
-                        { type: "image", src: "/placeholder.svg?height=200&width=400&text=API+Documentation" },
-                        { type: "image", src: "/placeholder.svg?height=200&width=400&text=Authentication+System" },
-                        { type: "image", src: "/placeholder.svg?height=200&width=400&text=Rate+Limiting" },
-                        { type: "image", src: "/placeholder.svg?height=200&width=400&text=Monitoring+Dashboard" },
+                        { type: "image", src: "/portfolio/portfolio.png?height=200&width=400&text=API+Documentation" },
+                        { type: "image", src: "/portfolio/404.png?height=200&width=400&text=API+Documentation" },
+                        { type: "image", src: "/portfolio/page.png?height=200&width=400&text=API+Documentation" },
+                        { type: "image", src: "/portfolio/layout.png?height=200&width=400&text=API+Documentation" },
+                        { type: "image", src: "/portfolio/language.png?height=200&width=400&text=API+Documentation" },
+                        { type: "image", src: "/portfolio/fade.png?height=200&width=400&text=API+Documentation" },
+                        { type: "image", src: "/portfolio/video.png?height=200&width=400&text=API+Documentation" },
+                        { type: "image", src: "/portfolio/carousel.png?height=200&width=400&text=API+Documentation" },
+                        { type: "video", src: "/portfolio/portfolio.mp4", poster: "/portfolio/portfolio.png?height=200&width=400&text=tetet", 
+                        },
                       ]}
-                      alt="API Platform"
+                      alt="Portfolio"
+                      autoPlayInterval={3000} // 3 segundos para imagens
+                      videoDuration={5000} // 5 segundos para vídeos
                     />
                     <CardContent className="p-6">
                       <div className="space-y-2">
@@ -410,11 +422,13 @@ export default function PortfolioPage() {
                         <span className="text-xs">{t("api_subdescription")}</span>
                         <p className="text-muted-foreground text-sm">{t("api_description")}</p>
                         <div className="flex flex-wrap gap-2 pt-2">
-                          <Badge variant="outline">PHP</Badge>
-                          <Badge variant="outline">Laravel</Badge>
-                          <Badge variant="outline">MySQL</Badge>
-                          <Badge variant="outline">Docker</Badge>
+                          <Badge variant="outline">React</Badge>
+                          <Badge variant="outline">Next.Js</Badge>
+                          <Badge variant="outline">Tailwind</Badge>
+                          <Badge variant="outline">TypeScript</Badge>
+                          <Badge variant="outline">Framer Motion</Badge>
                         </div>
+                        {/*
                         <div className="flex gap-2 pt-4">
                           <Button variant="outline" size="sm" className="gap-1">
                             <Github className="h-4 w-4" />
@@ -425,6 +439,7 @@ export default function PortfolioPage() {
                             {t("demo")}
                           </Button>
                         </div>
+                        */}
                       </div>
                     </CardContent>
                   </Card>

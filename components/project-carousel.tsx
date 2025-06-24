@@ -9,32 +9,32 @@ import { VideoPlayer } from "@/components/video-player"
 interface MediaItem {
   type: "image" | "video"
   src: string
-  poster?: string // Para vídeos
+  poster?: string
 }
 
 interface ProjectCarouselProps {
   media: MediaItem[]
   alt: string
-  autoPlayInterval?: number // Tempo em ms para cada slide
-  videoDuration?: number // Tempo que o vídeo fica visível em ms
+  autoPlayInterval?: number
+  videoDuration?: number
 }
 
 export function ProjectCarousel({
   media,
   alt,
-  autoPlayInterval = 4000, // 4 segundos padrão
-  videoDuration = 6000, // 6 segundos para vídeos
+  autoPlayInterval = 4000,
+  videoDuration = 6000,
 }: ProjectCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isLightboxOpen, setIsLightboxOpen] = useState(false)
   const [lightboxIndex, setLightboxIndex] = useState(0)
 
-  // Auto-play functionality - agora funciona para todos os tipos
+
   useEffect(() => {
     if (isLightboxOpen) return
 
     const currentMedia = media[currentIndex]
-    // Define o tempo baseado no tipo de mídia
+  
     const interval = currentMedia?.type === "video" ? videoDuration : autoPlayInterval
 
     const autoPlay = setInterval(() => {
@@ -44,7 +44,7 @@ export function ProjectCarousel({
     return () => clearInterval(autoPlay)
   }, [media, isLightboxOpen, currentIndex, autoPlayInterval, videoDuration])
 
-  // Handle escape key to close lightbox
+
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape") {

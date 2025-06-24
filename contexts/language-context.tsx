@@ -47,10 +47,9 @@ const translations = {
     crm_system: "TechDente",
     crm_subdescription: "SaaS Platform for Dental Clinics",
     crm_description: "Built a SaaS platform for managing dental prosthetic workflows, including role-based authentication, real-time dashboards, automated status updates via WhatsApp (using EvolutionAPI), and detailed reporting on production and delivery stages.",
-    restful_api: "RESTful API Platform",
-    api_subdescription: "Ainda vou pensar em algo aqui ####",
-    api_description:
-      "A scalable API platform built with PHP, Laravel, and MySQL. Includes authentication, rate limiting, and comprehensive documentation.",
+    restful_api: "Portfolio",
+    api_subdescription: "My Portfolio",
+    api_description: "My first project using Next.js, Tailwind CSS, and Framer Motion was an incredible learning experience. I started with PHP, but exploring Next.js and React opened up new possibilities and broadened my view of web development.",
     code: "Code",
     demo: "Demo",
     view_all_projects: "View All Projects",
@@ -114,6 +113,11 @@ const translations = {
 
     // Language
     switch_to_pt: "Switch to Pt-BR",
+
+    //404
+    content_text: "The page you are looking for was not found!",
+    content_title: "404 - Game Over",
+    button_back: "Back?",
   },
   "pt-br": {
     // Header
@@ -150,10 +154,9 @@ const translations = {
     crm_system: "TechDente",
     crm_subdescription: "SaaS para Clínica Odontológica",
     crm_description: "Sistema web em modelo SaaS para gestão de peças protéticas, com autenticação por nível de acesso, dashboards em tempo real, integração com WhatsApp via EvolutionAPI, e relatórios detalhados de produção e entrega.",
-    restful_api: "Plataforma de API RESTful",
-    api_subdescription: "Ainda vou por algo aqui ####",
-    api_description:
-      "Uma plataforma de API escalável construída com PHP, Laravel e MySQL. Inclui autenticação, limitação de taxa e documentação abrangente.",
+    restful_api: "Portfólio",
+    api_subdescription: "Meu Portfólio",
+    api_description: "Meu primeiro projeto com Next.js, Tailwind CSS e Framer Motion foi uma experiência de aprendizado incrível. Comecei com PHP, mas ao explorar Next.js e React, descobri novas possibilidades que ampliaram minha visão sobre desenvolvimento web.",
     code: "Código",
     demo: "Demo",
     view_all_projects: "Ver Todos os Projetos",
@@ -219,6 +222,11 @@ const translations = {
     // Language
     switch_to_pt: "Mudar para Português",
     switch_to_en: "Mudar para Inglês",
+
+    //404
+    content_text: "A página que você está procurando não foi encontrada!",
+    content_title: "404 - Game Over",
+    button_back: "Voltar?",
   },
 }
 
