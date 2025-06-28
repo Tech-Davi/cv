@@ -13,7 +13,7 @@ interface LanguageContextType {
 const translations = {
   en: {
     // Header
-    about: "About",
+    about_me: "About",
     skills: "Skills",
     projects: "Projects",
     experience: "Experience",
@@ -37,6 +37,11 @@ const translations = {
     databases: "Databases",
     devops_others: "DevOps & Others",
     other_technologies: "Other Technologies",
+
+        //Carousel
+    carousel_next: "Next",
+    carousel_previous: "Previous",
+    carousel_swipe: "Swipe",
 
     // Projects
     featured_projects: "Featured Projects",
@@ -121,7 +126,7 @@ const translations = {
   },
   "pt-br": {
     // Header
-    about: "Sobre",
+    about_me: "Sobre",
     skills: "Habilidades",
     projects: "Projetos",
     experience: "Experiência",
@@ -143,6 +148,11 @@ const translations = {
     databases: "Bancos de Dados",
     devops_others: "DevOps & Outros",
     other_technologies: "Outras Tecnologias",
+
+    //Carousel
+    carousel_next: "Próximo",
+    carousel_previous: "Anterior",
+    carousel_swipe: "Deslize",
 
     // Projects
     featured_projects: "Projetos em Destaque",

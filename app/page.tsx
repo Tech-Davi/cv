@@ -22,7 +22,7 @@ export default function PortfolioPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur">
+      <header className="sticky top-0 z-40 w-full border-b bg-background/75 backdrop-blur-md">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
             <Code2 className="h-6 w-6 text-emerald-600" />

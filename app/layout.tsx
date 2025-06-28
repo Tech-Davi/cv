@@ -5,12 +5,14 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { LanguageProvider } from "@/contexts/language-context"
 import FloatingPixels from "@/components/FloatingPixels"
+import type { Viewport } from "next"
 
 
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://cleversondavi.com.br"),
   title: "My | Portfolio 💻",
   description: "My Portfolio - Full Stack Developer",
   keywords: ["portfolio", "full stack developer", "web development", "freelancer"],
@@ -41,7 +43,6 @@ export const metadata: Metadata = {
     description: "My Portfolio - Full Stack Developer",
     creator: "@cleversondavi",
   },
-  themeColor: "#0f172a",
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon-32x32.png",
@@ -54,6 +55,10 @@ export const metadata: Metadata = {
       "pt-BR": "https://cleversondavi.com.br",
     },
   },
+}
+
+export const viewport: Viewport = {
+  themeColor: "#10b981",
 }
 
 
