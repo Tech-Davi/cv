@@ -30,7 +30,7 @@ export default function PortfolioPage() {
           </div>
           <nav className="hidden md:flex gap-6">
             <Link href="#about" className="text-sm font-medium hover:text-emerald-600 transition-colors">
-              {t("about")}
+              {t("about_me")}
             </Link>
             <Link href="#skills" className="text-sm font-medium hover:text-emerald-600 transition-colors">
               {t("skills")}
