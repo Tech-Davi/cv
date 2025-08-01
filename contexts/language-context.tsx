@@ -46,15 +46,23 @@ const translations = {
     // Projects
     featured_projects: "Featured Projects",
     projects_description: "A selection of my recent work showcasing my PHP development skills.",
+
     ecommerce_platform: "AMAS System",
     ecommerce_subdescription: "CRM for a Government Association",
     ecommerce_description: "Developed a web-based CRM tailored for a government-run association, featuring secure login, interactive dashboards, multi-step forms with photo capture, role-based access control, attendance tracking, meal management, and task organization.",
+    
     crm_system: "TechDente",
     crm_subdescription: "SaaS Platform for Dental Clinics",
     crm_description: "Built a SaaS platform for managing dental prosthetic workflows, including role-based authentication, real-time dashboards, automated status updates via WhatsApp (using EvolutionAPI), and detailed reporting on production and delivery stages.",
+    
     restful_api: "Portfolio",
     api_subdescription: "My Portfolio",
     api_description: "My first project using Next.js, Tailwind CSS, and Framer Motion was an incredible learning experience. I started with PHP, but exploring Next.js and React opened up new possibilities and broadened my view of web development.",
+    
+    barber_system: "BarberLab",
+    barber_subdescription: "Customizable SaaS for Barbershops",
+    barber_description: "Built with flexibility in mind, BarberLab lets shop owners tailor the platform to fit their brand and workflow. With separate logins, roles, and permissions for Admins, Barbers, and Clients, each user gets the right tools for their role. A SaaS that adapts — making every experience unique.",
+
     code: "Code",
     demo: "Demo",
     view_all_projects: "View All Projects",
@@ -157,16 +165,24 @@ const translations = {
     // Projects
     featured_projects: "Projetos em Destaque",
     projects_description: "Uma seleção dos meus trabalhos recentes demonstrando minhas habilidades em PHP.",
+
     ecommerce_platform: "Sistema AMAS",
     ecommerce_subdescription: "CRM para Associação Governamental",
-    ecommerce_description:
-      "Desenvolvi um sistema web para uma associação governamental, com login seguro, dashboard interativo, formulários com upload de fotos, controle de acesso por perfil, registro de presenças, controle de refeições e gestão de tarefas.",
+    ecommerce_description:"Desenvolvi um sistema web para uma associação governamental, com login seguro, dashboard interativo, formulários com upload de fotos, controle de acesso por perfil, registro de presenças, controle de refeições e gestão de tarefas.",
+    
     crm_system: "TechDente",
     crm_subdescription: "SaaS para Clínica Odontológica",
     crm_description: "Sistema web em modelo SaaS para gestão de peças protéticas, com autenticação por nível de acesso, dashboards em tempo real, integração com WhatsApp via EvolutionAPI, e relatórios detalhados de produção e entrega.",
+    
     restful_api: "Portfólio",
     api_subdescription: "Meu Portfólio",
     api_description: "Meu primeiro projeto com Next.js, Tailwind CSS e Framer Motion foi uma experiência de aprendizado incrível. Comecei com PHP, mas ao explorar Next.js e React, descobri novas possibilidades que ampliaram minha visão sobre desenvolvimento web.",
+    
+    barber_system: "BarberLab",
+    barber_subdescription: "SaaS personalizável para Barbearias",
+    barber_description: "Pensado para oferecer personalização total, o BarberLab permite que o empreendedor molde o sistema ao seu estilo. Com autenticação, funções e acessos separados para Master, Barbeiros e Clientes, cada perfil tem seu papel definido. Um SaaS que se adapta e se torna único para cada usuário.",
+  
+
     code: "Código",
     demo: "Demo",
     view_all_projects: "Ver Todos os Projetos",

@@ -300,9 +300,9 @@ export default function PortfolioPage() {
                 </FadeIn>
               </div>
 
-              <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.15}>
-                <StaggerItem>
-                  <Card className="overflow-hidden">
+              <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" staggerDelay={0.15}>
+                <StaggerItem className="h-full">
+                  <Card className="overflow-hidden h-full">
                     <ProjectCarousel
                       media={[
                         { type: "image", src: "/amas/dashboard.png?height=200&width=400&text=E-commerce+Dashboard" },
@@ -348,8 +348,8 @@ export default function PortfolioPage() {
                   </Card>
                 </StaggerItem>
 
-                <StaggerItem>
-                  <Card className="overflow-hidden">
+                <StaggerItem className="h-full">
+                  <Card className="overflow-hidden h-full">
                     <ProjectCarousel
                       media={[
                         { type: "image", src: "/techdente/painel.png?height=200&width=400&text=Cadastro TypeBot" },
@@ -397,8 +397,8 @@ export default function PortfolioPage() {
                   </Card>
                 </StaggerItem>
 
-                <StaggerItem>
-                  <Card className="overflow-hidden">
+                <StaggerItem className="h-full">
+                  <Card className="overflow-hidden h-full">
                     <ProjectCarousel
                       media={[
                         { type: "image", src: "/portfolio/portfolio.png?height=200&width=400&text=API+Documentation" },
@@ -440,6 +440,63 @@ export default function PortfolioPage() {
                           </Button>
                         </div>
                         */}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </StaggerItem>
+              
+
+              <StaggerItem className="h-full">
+                  <Card className="overflow-hidden h-full">
+                    <ProjectCarousel
+                      media={[
+                        { type: "image", src: "/barberlab/home.png?height=200&width=400&text=Cadastro TypeBot" },
+                        { type: "image", src: "/barberlab/home2.png?height=200&width=400&text=Cadastro TypeBot" },
+                        { type: "image", src: "/barberlab/home3.png?height=200&width=400&text=Cadastro TypeBot" },
+                        { type: "image", src: "/barberlab/mobilehome.png?height=200&width=400&text=Cadastro TypeBot" },
+                        { type: "image", src: "/barberlab/master.png?height=200&width=400&text=Cadastro TypeBot" },
+                        { type: "image", src: "/barberlab/listauser.png?height=200&width=400&text=Cadastro TypeBot" },
+                        { type: "image", src: "/barberlab/service.png?height=200&width=400&text=Cadastro TypeBot" },
+                        { type: "image", src: "/barberlab/agendamento.png?height=200&width=400&text=Cadastro TypeBot" },
+                        { type: "image", src: "/barberlab/relatorio.png?height=200&width=400&text=Cadastro TypeBot" },
+                        { type: "image", src: "/barberlab/config.png?height=200&width=400&text=Cadastro TypeBot" },
+                        { type: "image", src: "/barberlab/configpreview.png?height=200&width=400&text=Cadastro TypeBot" },
+                        { type: "image", src: "/barberlab/configgaleria.png?height=200&width=400&text=Cadastro TypeBot" },
+                        { type: "image", src: "/barberlab/informacoes.png?height=200&width=400&text=Cadastro TypeBot" },
+                        { type: "image", src: "/barberlab/servicossite.png?height=200&width=400&text=Cadastro TypeBot" },
+                        { type: "image", src: "/barberlab/mobilemaster.png?height=200&width=400&text=Cadastro TypeBot" },
+                        { type: "image", src: "/barberlab/cliente.png?height=200&width=400&text=Cadastro TypeBot" },
+                        { type: "image", src: "/barberlab/mobilecliente.png?height=200&width=400&text=Cadastro TypeBot" },
+                        { type: "video", src: "/barberlab/BarberLab.mp4", poster: "/barberlab/home.png?height=200&width=400&text=tetet",
+                        },
+                      ]}
+                      alt="TechDente"
+                      autoPlayInterval={3000} // 3 segundos para imagens
+                      videoDuration={5000} // 5 segundos para vídeos
+                    />
+                    <CardContent className="p-6">
+                      <div className="space-y-2">
+                        <h3 className="text-xl font-bold">{t("barber_system")}</h3>
+                        <span className="text-xs">{t("barber_subdescription")}</span>
+                        <p className="text-muted-foreground text-sm">{t("barber_description")}</p>
+                        <div className="flex flex-wrap gap-2 pt-2">
+                          <Badge variant="outline">React</Badge>
+                          <Badge variant="outline">Supabase</Badge>
+                          <Badge variant="outline">Tailwind</Badge>
+                          <Badge variant="outline">NextJs</Badge>
+                          <Badge variant="outline">Shadcn</Badge>
+                          <Badge variant="outline">TypeScript</Badge>
+                        </div>
+                        {/*<div className="flex gap-2 pt-4">
+                          <Button variant="outline" size="sm" className="gap-1">
+                            <Github className="h-4 w-4" />
+                            {t("code")}
+                          </Button>
+                          <Button variant="outline" size="sm" className="gap-1">
+                            <ExternalLink className="h-4 w-4" />
+                            {t("demo")}
+                          </Button>
+                        </div>*/}
                       </div>
                     </CardContent>
                   </Card>
