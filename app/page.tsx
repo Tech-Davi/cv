@@ -13,6 +13,7 @@ import { useLanguage } from "@/contexts/language-context"
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/fade-in"
 import { FaWhatsapp } from "react-icons/fa";
 import { MdAlternateEmail } from "react-icons/md";
+import { ProjectsCarousel } from "@/components/projects-carousel"
 
 
 export default function PortfolioPage() {
@@ -84,7 +85,7 @@ export default function PortfolioPage() {
         </div>
       </header>
 
-      <main className="container py-8 md:py-12">
+      <main className="container pb-8 md:py-2">
         {/* Hero Section */}
         <section id="about" className="py-12 md:py-20">
           <div className="grid gap-8 md:grid-cols-2 md:gap-12 items-center">
@@ -300,8 +301,8 @@ export default function PortfolioPage() {
                 </FadeIn>
               </div>
 
-              <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" staggerDelay={0.15}>
-                <StaggerItem className="h-full">
+              <ProjectsCarousel autoPlayInterval={3000}>
+                
                   <Card className="overflow-hidden h-full">
                     <ProjectCarousel
                       media={[
@@ -346,9 +347,7 @@ export default function PortfolioPage() {
                       </div>
                     </CardContent>
                   </Card>
-                </StaggerItem>
 
-                <StaggerItem className="h-full">
                   <Card className="overflow-hidden h-full">
                     <ProjectCarousel
                       media={[
@@ -395,9 +394,7 @@ export default function PortfolioPage() {
                       </div>
                     </CardContent>
                   </Card>
-                </StaggerItem>
 
-                <StaggerItem className="h-full">
                   <Card className="overflow-hidden h-full">
                     <ProjectCarousel
                       media={[
@@ -443,10 +440,8 @@ export default function PortfolioPage() {
                       </div>
                     </CardContent>
                   </Card>
-                </StaggerItem>
-              
 
-              <StaggerItem className="h-full">
+
                   <Card className="overflow-hidden h-full">
                     <ProjectCarousel
                       media={[
@@ -500,8 +495,108 @@ export default function PortfolioPage() {
                       </div>
                     </CardContent>
                   </Card>
-                </StaggerItem>
-              </StaggerContainer>
+
+
+                  <Card className="overflow-hidden h-full">
+                    <ProjectCarousel
+                      media={[
+                        { type: "image", src: "/driverapp/login.png?height=200&width=400&text=driverapp" },
+                        { type: "image", src: "/driverapp/home.png?height=200&width=400&text=driverapp" },
+                        { type: "image", src: "/driverapp/dropprofile.png?height=200&width=400&text=driverapp" },
+                        { type: "image", src: "/driverapp/profile.png?height=200&width=400&text=driverapp" },
+                        { type: "image", src: "/driverapp/goals.png?height=200&width=400&text=driverapp" },
+                        { type: "image", src: "/driverapp/trips.png?height=200&width=400&text=driverapp" },
+                        { type: "image", src: "/driverapp/timer.png?height=200&width=400&text=driverapp" },
+                        { type: "image", src: "/driverapp/reports.png?height=200&width=400&text=driverapp" },
+                        { type: "image", src: "/driverapp/homemobile.png?height=200&width=400&text=driverapp" },
+                        { type: "image", src: "/driverapp/profilemobile.png?height=200&width=400&text=driverapp" },
+                        { type: "image", src: "/driverapp/tripsmobile.png?height=200&width=400&text=driverapp" },
+                        { type: "image", src: "/driverapp/goalsmobile.png?height=200&width=400&text=driverapp" },
+                        { type: "image", src: "/driverapp/reportsmobile.png?height=200&width=400&text=driverapp" },
+                        { type: "image", src: "/driverapp/vs1.png?height=200&width=400&text=driverapp" },
+                        { type: "video", src: "/driverapp/driverapp.mp4", poster: "/driverapp/login.png?height=200&width=400&text=driverapp",
+                        },
+                      ]}
+                      alt="DriverApp"
+                      autoPlayInterval={3000} // 3 segundos para imagens
+                      videoDuration={5000} // 5 segundos para vídeos
+                    />
+                    <CardContent className="p-6">
+                      <div className="space-y-2">
+                        <h3 className="text-xl font-bold">{t("driver_system")}</h3>
+                        <span className="text-xs">{t("driver_subdescription")}</span>
+                        <p className="text-muted-foreground text-sm">{t("driver_description")}</p>
+                        <div className="flex flex-wrap gap-2 pt-2">
+                          <Badge variant="outline">React</Badge>
+                          <Badge variant="outline">Supabase</Badge>
+                          <Badge variant="outline">Tailwind</Badge>
+                          <Badge variant="outline">NextJs</Badge>
+                          <Badge variant="outline">TypeScript</Badge>
+                        </div>
+                        {/*<div className="flex gap-2 pt-4">
+                          <Button variant="outline" size="sm" className="gap-1">
+                            <Github className="h-4 w-4" />
+                            {t("code")}
+                          </Button>
+                          <Button variant="outline" size="sm" className="gap-1">
+                            <ExternalLink className="h-4 w-4" />
+                            {t("demo")}
+                          </Button>
+                        </div>*/}
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="overflow-hidden h-full">
+                    <ProjectCarousel
+                      media={[
+                        { type: "image", src: "/pibpe/home.png?height=200&width=400&text=PIBPE" },
+                        { type: "image", src: "/pibpe/agenda.png?height=200&width=400&text=PIBPE" },
+                        { type: "image", src: "/pibpe/anuncios.png?height=200&width=400&text=PIBPE" },
+                        { type: "image", src: "/pibpe/historia.png?height=200&width=400&text=PIBPE" },
+                        { type: "image", src: "/pibpe/pedido.png?height=200&width=400&text=PIBPE" },
+                        { type: "image", src: "/pibpe/contato.png?height=200&width=400&text=PIBPE" },
+                        { type: "image", src: "/pibpe/admin.png?height=200&width=400&text=PIBPE" },
+                        { type: "image", src: "/pibpe/dashadmin.png?height=200&width=400&text=PIBPE" },
+                        { type: "image", src: "/pibpe/homemobile.png?height=200&width=400&text=PIBPE" },
+                        { type: "image", src: "/pibpe/anunciosmobile.png?height=200&width=400&text=PIBPE" },
+                        { type: "image", src: "/pibpe/pedidomobile.png?height=200&width=400&text=PIBPE" },
+                        { type: "image", src: "/pibpe/contatomobile.png?height=200&width=400&text=PIBPE" },
+                        { type: "image", src: "/pibpe/vscode.png?height=200&width=400&text=PIBPE" },
+                        { type: "video", src: "/pibpe/pibpe.mp4", poster: "/pibpe/login.png?height=200&width=400&text=PIBPE",
+                        },
+                      ]}
+                      alt="PIBPE"
+                      autoPlayInterval={3000} // 3 segundos para imagens
+                      videoDuration={5000} // 5 segundos para vídeos
+                    />
+                    <CardContent className="p-6">
+                      <div className="space-y-2">
+                        <h3 className="text-xl font-bold">{t("pibpe_system")}</h3>
+                        <span className="text-xs">{t("pibpe_subdescription")}</span>
+                        <p className="text-muted-foreground text-sm">{t("pibpe_description")}</p>
+                        <div className="flex flex-wrap gap-2 pt-2">
+                          <Badge variant="outline">React</Badge>
+                          <Badge variant="outline">Supabase</Badge>
+                          <Badge variant="outline">Tailwind</Badge>
+                          <Badge variant="outline">NextJs</Badge>
+                          <Badge variant="outline">TypeScript</Badge>
+                        </div>
+                        {/*<div className="flex gap-2 pt-4">
+                          <Button variant="outline" size="sm" className="gap-1">
+                            <Github className="h-4 w-4" />
+                            {t("code")}
+                          </Button>
+                          <Button variant="outline" size="sm" className="gap-1">
+                            <ExternalLink className="h-4 w-4" />
+                            {t("demo")}
+                          </Button>
+                        </div>*/}
+                      </div>
+                    </CardContent>
+                  </Card> 
+                  
+                </ProjectsCarousel>
 
               {/*
               <FadeIn delay={0.6}>
@@ -592,7 +687,6 @@ export default function PortfolioPage() {
             </div>
           </FadeIn>
         </section>
-
         {/* Contact Section */}
         <section id="contact" className="py-12 border-t scroll-mt-24">
           <FadeIn>
@@ -606,11 +700,12 @@ export default function PortfolioPage() {
                 </FadeIn>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto px-4 md:px-0">
                 <FadeIn direction="left" delay={0.3}>
-                  <Card>
-                    <CardContent className="p-6">
-                      <form action="https://formspree.io/f/mwpojvdy"
+                  <Card className="w-full">
+                    <CardContent className="p-4 sm:p-6">
+                      <form
+                        action="https://formspree.io/f/mwpojvdy"
                         method="POST"
                         className="space-y-4"
                       >
@@ -623,7 +718,7 @@ export default function PortfolioPage() {
                               id="name"
                               name="name"
                               type="text"
-                              className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                              className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                               placeholder={t('your_name')}
                             />
                           </div>
@@ -635,7 +730,7 @@ export default function PortfolioPage() {
                               id="email"
                               name="email"
                               type="email"
-                              className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                              className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                               placeholder={t('your_email')}
                             />
                           </div>
@@ -646,54 +741,58 @@ export default function PortfolioPage() {
                             <textarea
                               id="message"
                               name="message"
-                              className="flex min-h-[120px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                              className="flex min-h-[120px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                               placeholder={t('your_message')}
                             ></textarea>
                           </div>
                         </div>
-                        <Button className="w-full bg-emerald-600 hover:bg-emerald-700">{t("send_message")}</Button>
+                        <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
+                          {t("send_message")}
+                        </Button>
                       </form>
                     </CardContent>
                   </Card>
                 </FadeIn>
 
                 <FadeIn direction="right" delay={0.5}>
-                  <div className="space-y-6">
-                    <Card>
-                      <CardContent className="p-6">
+                  <div className="space-y-4 w-full">
+                    <Card className="w-full">
+                      <CardContent className="p-4 sm:p-6">
                         <div className="flex items-center gap-4">
-                          <div className="bg-emerald-100 p-3 rounded-full">
+                          <div className="bg-emerald-100 p-3 rounded-full shrink-0">
                             <Mail className="h-6 w-6 text-emerald-600" />
                           </div>
-                          <div>
+                          <div className="min-w-0">
                             <h3 className="font-medium">{t("email")}</h3>
-                            <p className="text-muted-foreground">contato@cleversondavi.com.br</p>
+                            <p className="text-muted-foreground text-sm truncate">contato@cleversondavi.com.br</p>
                           </div>
                         </div>
                       </CardContent>
                     </Card>
 
-                    <Card>
-                      <CardContent className="p-6">
+                    <Card className="w-full">
+                      <CardContent className="p-4 sm:p-6">
                         <div className="flex items-center gap-4">
-                          <div className="bg-emerald-100 p-3 rounded-full">
+                          <div className="bg-emerald-100 p-3 rounded-full shrink-0">
                             <User className="h-6 w-6 text-emerald-600" />
                           </div>
                           <div>
                             <h3 className="font-medium">{t("social_profiles")}</h3>
                             <div className="flex gap-4 mt-2">
-                              <a 
+                              <a
                                 href="https://github.com/Tech-Davi"
                                 target="_blank"
-                                className="text-muted-foreground hover:text-emerald-600 transition-colors">
+                                className="text-muted-foreground hover:text-emerald-600 transition-colors"
+                              >
                                 <Github className="h-5 w-5" />
                                 <span className="sr-only">GitHub</span>
                               </a>
-                              <a 
+                              <a
                                 href="https://www.linkedin.com/in/cleverson-davi/"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-muted-foreground hover:text-emerald-600 transition-colors">
+                                className="text-muted-foreground hover:text-emerald-600 transition-colors"
+                              >
                                 <Linkedin className="h-5 w-5" />
                                 <span className="sr-only">LinkedIn</span>
                               </a>
@@ -712,31 +811,26 @@ export default function PortfolioPage() {
                       </CardContent>
                     </Card>
 
-                    <Card>
-                      <CardContent className="p-6">
+                    <Card className="w-full">
+                      <CardContent className="p-4 sm:p-6">
                         <div className="space-y-4">
                           <h3 className="font-medium">{t("availability")}</h3>
                           <div className="space-y-2">
-                            <div className="flex justify-between">
-                              <span className="text-muted-foreground">{t("freelance_projects")}</span>
-                              <Badge 
-                                className="bg-emerald-100 text-emerald-800 hover:bg-emerald-100 animate-blink">
+                            <div className="flex justify-between items-center gap-2">
+                              <span className="text-muted-foreground text-sm">{t("freelance_projects")}</span>
+                              <Badge className="bg-emerald-100 text-emerald-800 hover:bg-emerald-100 animate-blink shrink-0">
                                 {t("available")}
                               </Badge>
                             </div>
-
-                            <div className="flex justify-between">
-                              <span className="text-muted-foreground">{t("full_time")}</span>
-                              <Badge 
-                                className="bg-emerald-100 text-emerald-800 hover:bg-emerald-100 animate-blink">
+                            <div className="flex justify-between items-center gap-2">
+                              <span className="text-muted-foreground text-sm">{t("full_time")}</span>
+                              <Badge className="bg-emerald-100 text-emerald-800 hover:bg-emerald-100 animate-blink shrink-0">
                                 {t("limited")}
                               </Badge>
                             </div>
-
-                            <div className="flex justify-between">
-                              <span className="text-muted-foreground">{t("consulting")}</span>
-                              <Badge 
-                                className="bg-emerald-100 text-emerald-800 hover:bg-emerald-100 animate-blink">
+                            <div className="flex justify-between items-center gap-2">
+                              <span className="text-muted-foreground text-sm">{t("consulting")}</span>
+                              <Badge className="bg-emerald-100 text-emerald-800 hover:bg-emerald-100 animate-blink shrink-0">
                                 {t("available")}
                               </Badge>
                             </div>

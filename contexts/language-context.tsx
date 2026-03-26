@@ -63,6 +63,14 @@ const translations = {
     barber_subdescription: "Customizable SaaS for Barbershops",
     barber_description: "Built with flexibility in mind, BarberLab lets shop owners tailor the platform to fit their brand and workflow. With separate logins, roles, and permissions for Admins, Barbers, and Clients, each user gets the right tools for their role. A SaaS that adapts — making every experience unique.",
 
+    driver_system: "DriverApp",
+    driver_subdescription: "Driver Application",
+    driver_description: "I developed an application for drivers, featuring functionalities such as an integrated timer, trip history tracking, and the generation of daily, weekly, and monthly reports. The project was designed with a focus on delivering an intuitive, efficient, and reliable experience for rideshare drivers.",
+
+    pibpe_system: "PIBPE",
+    pibpe_subdescription: "First Baptist Church in Parque Estoril",
+    pibpe_description: "Developed a website for the First Baptist Church in Parque Estoril, providing a modern and functional platform for the community. The site features information on events and ministries, along with an admin panel that allows the church team to easily manage content and keep members informed.",
+
     code: "Code",
     demo: "Demo",
     view_all_projects: "View All Projects",
@@ -182,6 +190,13 @@ const translations = {
     barber_subdescription: "SaaS personalizável para Barbearias",
     barber_description: "Pensado para oferecer personalização total, o BarberLab permite que o empreendedor molde o sistema ao seu estilo. Com autenticação, funções e acessos separados para Master, Barbeiros e Clientes, cada perfil tem seu papel definido. Um SaaS que se adapta e se torna único para cada usuário.",
   
+    driver_system: "DriverApp",
+    driver_subdescription: "Aplicativo para Motoristas",
+    driver_description: "Desenvolvi um aplicativo voltado para motoristas, com funcionalidades como cronômetro integrado, visualização do histórico de viagens e geração de relatórios diários, semanais e mensais. O projeto foi concebido com foco em proporcionar uma experiência intuitiva, eficiente e confiável para motoristas de aplicativo.",
+
+    pibpe_system: "PIBPE",
+    pibpe_subdescription: "Primeira Igreja Batista em Parque Estoril",
+    pibpe_description: "Desenvolvi um site para a PIBPE, oferecendo uma plataforma moderna e funcional para a organização. O sistema inclui informações sobre eventos e ministérios, além de um painel administrativo que permite à equipe gerenciar conteúdos e manter os membros informados.",
 
     code: "Código",
     demo: "Demo",
