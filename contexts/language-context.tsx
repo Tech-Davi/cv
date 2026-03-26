@@ -135,6 +135,7 @@ const translations = {
 
     // Footer
     rights_reserved: "All rights reserved.",
+    author: "i",   
 
     // Language
     switch_to_pt: "Switch to Pt-BR",
@@ -265,6 +266,7 @@ const translations = {
     
     // Footer
     rights_reserved: "Todos os direitos reservados.",
+    author: "eu",
 
     // Language
     switch_to_pt: "Mudar para Português",

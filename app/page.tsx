@@ -582,7 +582,7 @@ export default function PortfolioPage() {
               <span className="font-bold">Cleverson Davi</span>
             </div>
             <p className="text-sm text-muted-foreground">
-              &copy; {new Date().getFullYear()} @i. {t("rights_reserved")}
+              &copy; {new Date().getFullYear()} @{t("author")}. {t("rights_reserved")}
             </p>
             <div className="flex gap-4">
               <a 
