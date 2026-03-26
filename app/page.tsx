@@ -5,21 +5,46 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Code2, Database, ExternalLink, Github, Linkedin, Mail, Server, User } from "lucide-react"
-import { ProjectCarousel } from "@/components/project-carousel"
+import { Code2, Database, ExternalLink, Github, Linkedin, Mail, Server, User, Eye, ChevronDown, ChevronUp } from "lucide-react"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { LanguageToggle } from "@/components/language-toggle"
 import { useLanguage } from "@/contexts/language-context"
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/fade-in"
 import { FaWhatsapp } from "react-icons/fa";
 import { MdAlternateEmail } from "react-icons/md";
-import { ProjectsCarousel } from "@/components/projects-carousel"
-
+import { projectsData } from "@/components/projects-data"
+import { FullscreenCarousel } from "@/components/fullscreen-carousel"
+import { useState } from "react"
 
 export default function PortfolioPage() {
   const { t, language } = useLanguage()
+  const [selectedProject, setSelectedProject] = useState<typeof projectsData[0] | null>(null)
+  const [isCarouselOpen, setIsCarouselOpen] = useState(false)
+  const [showAllProjects, setShowAllProjects] = useState(false)
 
+  const order = [
+  'barberlab',
+  'techdente',
+  'pibpe',
+  'amas',
+  'driverapp',
+  'portfolio',
+];
 
+  const orderedProjects = [...projectsData].sort(
+    (a, b) => order.indexOf(a.id) - order.indexOf(b.id)
+  );
+
+  const handleViewDetails = (project: typeof projectsData[0]) => {
+    setSelectedProject(project)
+    setIsCarouselOpen(true)
+  }
+
+  // Define quantos projetos mostrar inicialmente
+  const initialProjectsCount = 3
+  const displayedProjects = showAllProjects 
+    ? orderedProjects 
+    : orderedProjects.slice(0, initialProjectsCount)
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -49,38 +74,16 @@ export default function PortfolioPage() {
           <div className="hidden md:flex items-center gap-2">
             <LanguageToggle />
             <ThemeToggle />
-            <a
-            href="mailto:contato@cleversondavi.com.br"
-            >
-            <Button variant="outline" className="hidden md:flex">
-              <Mail className="mr-2 h-4 w-4" />
-              {t("hire_me")}
-            </Button>
-          </a>
+            <a href="mailto:contato@cleversondavi.com.br">
+              <Button variant="outline" className="hidden md:flex">
+                <Mail className="mr-2 h-4 w-4" />
+                {t("hire_me")}
+              </Button>
+            </a>
           </div>
           <div className="flex md:hidden items-center gap-2">
             <LanguageToggle />
             <ThemeToggle />
-            {/*
-            <Button variant="ghost" size="icon">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-6 w-6"
-              >
-                <line x1="4" x2="20" y1="12" y2="12" />
-                <line x1="4" x2="20" y1="6" y2="6" />
-                <line x1="4" x2="20" y1="18" y2="18" />
-              </svg>
-            </Button>
-            */}
           </div>
         </div>
       </header>
@@ -107,9 +110,7 @@ export default function PortfolioPage() {
                 <FadeIn delay={0.8}>
                   <div className="flex gap-4 pt-4">
                     <Button className="bg-emerald-600 hover:bg-emerald-700">
-                      <a 
-                      href="#projects">{t("view_projects")}
-                      </a>
+                      <a href="#projects">{t("view_projects")}</a>
                     </Button>
                     <Button variant="outline">
                       <a href={language === "pt-br" ? "/cv-pt.pdf" : "/cv-en.pdf"} download>
@@ -157,28 +158,23 @@ export default function PortfolioPage() {
                         <Code2 className="h-8 w-8 text-emerald-600" />
                         <h3 className="text-xl font-bold">{t("backend_development")}</h3>
                       </div>
-
-                        <div className="flex flex-wrap gap-2">
-                          <Badge variant="secondary" className="bg-emerald-50 text-emerald-700 hover:bg-emerald-100 transform transition duration-200 hover:scale-110 cursor-default">
-                            PHP
-                          </Badge>      
-
-                          <Badge variant="secondary" className="bg-emerald-50 text-emerald-700 hover:bg-emerald-100 transform transition duration-200 hover:scale-110 cursor-default">
-                            TypeScript
-                          </Badge>
-
-                          <Badge variant="secondary" className="bg-emerald-50 text-emerald-700 hover:bg-emerald-100 transform transition duration-200 hover:scale-110 cursor-default">
-                            React
-                          </Badge>
-
-                          <Badge variant="secondary" className="bg-emerald-50 text-emerald-700 hover:bg-emerald-100 transform transition duration-200 hover:scale-110 cursor-default">
-                            Next.js
-                          </Badge>
-
-                          <Badge variant="secondary" className="bg-emerald-50 text-emerald-700 hover:bg-emerald-100 transform transition duration-200 hover:scale-110 cursor-default">
-                            Laravel
-                          </Badge>
-                        </div>
+                      <div className="flex flex-wrap gap-2">
+                        <Badge variant="secondary" className="bg-emerald-50 text-emerald-700 hover:bg-emerald-100 transform transition duration-200 hover:scale-110 cursor-default">
+                          PHP
+                        </Badge>      
+                        <Badge variant="secondary" className="bg-emerald-50 text-emerald-700 hover:bg-emerald-100 transform transition duration-200 hover:scale-110 cursor-default">
+                          TypeScript
+                        </Badge>
+                        <Badge variant="secondary" className="bg-emerald-50 text-emerald-700 hover:bg-emerald-100 transform transition duration-200 hover:scale-110 cursor-default">
+                          React
+                        </Badge>
+                        <Badge variant="secondary" className="bg-emerald-50 text-emerald-700 hover:bg-emerald-100 transform transition duration-200 hover:scale-110 cursor-default">
+                          Next.js
+                        </Badge>
+                        <Badge variant="secondary" className="bg-emerald-50 text-emerald-700 hover:bg-emerald-100 transform transition duration-200 hover:scale-110 cursor-default">
+                          Laravel
+                        </Badge>
+                      </div>
                     </CardContent>
                   </Card>
                 </StaggerItem>
@@ -192,20 +188,17 @@ export default function PortfolioPage() {
                       </div>
                       <div className="flex flex-wrap gap-2">
                         <Badge variant="secondary" className="bg-emerald-50 text-blue-700 hover:bg-blue-100 transform transition duration-200 hover:scale-110 cursor-default">
-                            MySQL
-                          </Badge>
-
-                          <Badge variant="secondary" className="bg-emerald-50 text-blue-700 hover:bg-blue-100 transform transition duration-200 hover:scale-110 cursor-default">
-                            SQLite
-                          </Badge>
-
-                          <Badge variant="secondary" className="bg-emerald-50 text-blue-700 hover:bg-blue-100 transform transition duration-200 hover:scale-110 cursor-default">
-                            Prisma
-                          </Badge>
-
-                          <Badge variant="secondary" className="bg-emerald-50 text-blue-700 hover:bg-blue-100 transform transition duration-200 hover:scale-110 cursor-default">
-                            PostgreSQL
-                          </Badge>
+                          MySQL
+                        </Badge>
+                        <Badge variant="secondary" className="bg-emerald-50 text-blue-700 hover:bg-blue-100 transform transition duration-200 hover:scale-110 cursor-default">
+                          SQLite
+                        </Badge>
+                        <Badge variant="secondary" className="bg-emerald-50 text-blue-700 hover:bg-blue-100 transform transition duration-200 hover:scale-110 cursor-default">
+                          Prisma
+                        </Badge>
+                        <Badge variant="secondary" className="bg-emerald-50 text-blue-700 hover:bg-blue-100 transform transition duration-200 hover:scale-110 cursor-default">
+                          PostgreSQL
+                        </Badge>
                       </div>
                     </CardContent>
                   </Card>
@@ -222,15 +215,12 @@ export default function PortfolioPage() {
                         <Badge variant="secondary" className="bg-emerald-50 text-purple-700 hover:bg-purple-100 transform transition duration-200 hover:scale-110 cursor-default">
                           Docker
                         </Badge>
-
                         <Badge variant="secondary" className="bg-emerald-50 text-purple-700 hover:bg-purple-100 transform transition duration-200 hover:scale-110 cursor-default">
                           Git
                         </Badge>
-
                         <Badge variant="secondary" className="bg-emerald-50 text-purple-700 hover:bg-purple-100 transform transition duration-200 hover:scale-110 cursor-default">
                           RESTful APIs
                         </Badge>
-                        
                         <Badge variant="secondary" className="bg-emerald-50 text-purple-700 hover:bg-purple-100 transform transition duration-200 hover:scale-110 cursor-default">
                           Tailwind
                         </Badge>
@@ -245,42 +235,18 @@ export default function PortfolioPage() {
                 <div className="text-center space-y-4">
                   <h3 className="text-lg font-semibold text-muted-foreground">{t("other_technologies")}</h3>
                   <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto cursor-default">
-                    <Badge variant="outline" className="hover:bg-muted">
-                      HTML5
-                    </Badge>
-                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">
-                      CSS3
-                    </Badge>
-                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">
-                      JavaScript
-                    </Badge>
-                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">
-                      Bootstrap
-                    </Badge>
-                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">
-                      jQuery
-                    </Badge>
-                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">
-                      AJAX
-                    </Badge>
-                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">
-                      Apache
-                    </Badge>
-                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">
-                      React
-                    </Badge>
-                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">
-                      PHPMyAdmin
-                    </Badge>
-                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">
-                      Postman
-                    </Badge>
-                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">
-                      TypeBot
-                    </Badge>
-                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">
-                      EvolutionAPI
-                    </Badge>
+                    <Badge variant="outline" className="hover:bg-muted">HTML5</Badge>
+                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">CSS3</Badge>
+                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">JavaScript</Badge>
+                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">Bootstrap</Badge>
+                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">jQuery</Badge>
+                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">AJAX</Badge>
+                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">Apache</Badge>
+                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">React</Badge>
+                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">PHPMyAdmin</Badge>
+                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">Postman</Badge>
+                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">TypeBot</Badge>
+                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">EvolutionAPI</Badge>
                   </div>
                 </div>
               </FadeIn>
@@ -301,309 +267,69 @@ export default function PortfolioPage() {
                 </FadeIn>
               </div>
 
-              <ProjectsCarousel autoPlayInterval={3000}>
-                
-                  <Card className="overflow-hidden h-full">
-                    <ProjectCarousel
-                      media={[
-                        { type: "image", src: "/amas/dashboard.png?height=200&width=400&text=E-commerce+Dashboard" },
-                        { type: "image", src: "/amas/contatos.png?height=200&width=400&text=Product+Catalog" },
-                        { type: "image", src: "/amas/cadastro.png?height=200&width=400&text=Shopping+Cart" },
-                        { type: "image", src: "/amas/kanbam.png?height=200&width=400&text=Admin+Panel" },
-                        { type: "image", src: "/amas/relatorios.png?height=200&width=400&text=effeffef" },
-                        { type: "image", src: "/amas/calendario.png?height=200&width=400&text=fwv" },
-                        { type: "image", src: "/amas/user.png?height=200&width=400&text=wrvrwv" },
-                        { type: "image", src: "/amas/docker.png?height=200&width=400&text=wrvwrv" },
-                        { type: "video", src: "/amas/amas.mp4", poster: "/amas/dashboard.png?height=200&width=400&text=tetet", },
-                      ]}
-                      alt="Amas"
-                      autoPlayInterval={3000} // 3 segundos para imagens
-                      videoDuration={5000} // 5 segundos para vídeos
-                    />
-                    <CardContent className="p-6">
-                      <div className="space-y-2">
-                        <h3 className="text-xl font-bold">{t("ecommerce_platform")}</h3>
-                        <span className="text-xs">{t("ecommerce_subdescription")}</span>
-                        <p className="text-muted-foreground text-sm">{t("ecommerce_description")}</p>
-                        <div className="flex flex-wrap gap-2 pt-2">
-                          <Badge variant="outline">PHP</Badge>
-                          <Badge variant="outline">Bootstrap</Badge>
-                          <Badge variant="outline">MySQL</Badge>
-                          <Badge variant="outline">Docker</Badge>
-                          <Badge variant="outline">Apache</Badge>
-                          <Badge variant="outline">Bootstrap</Badge>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-500 ease-in-out">
+                {displayedProjects.map((project, index) => (
+                  <FadeIn key={project.id} delay={0.2 + index * 0.1}>
+                    <Card className="overflow-hidden h-full flex flex-col group hover:shadow-lg transition-all duration-300">
+                      <div 
+                        className="relative aspect-video w-full overflow-hidden bg-muted cursor-pointer"
+                        onClick={() => handleViewDetails(project)}
+                      >
+                        <Image
+                          src={project.media[0].src}
+                          alt={t(project.titleKey)}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                          <Button variant="secondary" size="sm" className="gap-2">
+                            <Eye className="h-4 w-4" />
+                            {t("view_details")}
+                          </Button>
                         </div>
-                        
-                        {/* <div className="flex gap-2 pt-4">
-                          <Button variant="outline" size="sm" className="gap-1">
-                            <Github className="h-4 w-4" />
-                            {t("code")}
-                          </Button>
-                          <Button variant="outline" size="sm" className="gap-1">
-                            <ExternalLink className="h-4 w-4" />
-                            {t("demo")}
-                          </Button>
-                        </div>*/}
                       </div>
-                    </CardContent>
-                  </Card>
-
-                  <Card className="overflow-hidden h-full">
-                    <ProjectCarousel
-                      media={[
-                        { type: "image", src: "/techdente/painel.png?height=200&width=400&text=Cadastro TypeBot" },
-                        { type: "image", src: "/techdente/start.png?height=200&width=400&text=Start" },
-                        { type: "image", src: "/techdente/cadastro.png?height=200&width=400&text=Cadastro" },
-                        { type: "image", src: "/techdente/status.png?height=200&width=400&text=Status" },
-                        { type: "image", src: "/techdente/retirada.png?height=200&width=400&text=Retirada" },
-                        { type: "image", src: "/techdente/evolution.png?height=200&width=400&text=Evolution" },
-                        { type: "image", src: "/techdente/dashboard.png?height=200&width=400&text=Dashboard" },
-                        { type: "image", src: "/techdente/modal.png?height=200&width=400&text=Modal" },
-                        { type: "image", src: "/techdente/toast.png?height=200&width=400&text=Toast" },
-                        { type: "video", src: "/techdente/tech.mp4", poster: "/techdente/painel.png?height=200&width=400&text=tetet",
-                        },
-                      ]}
-                      alt="TechDente"
-                      autoPlayInterval={3000} // 3 segundos para imagens
-                      videoDuration={5000} // 5 segundos para vídeos
-                    />
-                    <CardContent className="p-6">
-                      <div className="space-y-2">
-                        <h3 className="text-xl font-bold">{t("crm_system")}</h3>
-                        <span className="text-xs">{t("crm_subdescription")}</span>
-                        <p className="text-muted-foreground text-sm">{t("crm_description")}</p>
-                        <div className="flex flex-wrap gap-2 pt-2">
-                          <Badge variant="outline">PHP</Badge>
-                          <Badge variant="outline">MySQL</Badge>
-                          <Badge variant="outline">Docker</Badge>
-                          <Badge variant="outline">EvolutionAPI</Badge>
-                          <Badge variant="outline">TypeBot</Badge>
-                          <Badge variant="outline">Apache</Badge>
-                          <Badge variant="outline">Bootstrap</Badge>
+                      <CardContent className="p-6 flex-grow">
+                        <div className="space-y-2">
+                          <h3 className="text-xl font-bold">{t(project.titleKey)}</h3>
+                          <span className="text-xs text-muted-foreground">{t(project.subdescriptionKey)}</span>
+                          <p className="text-muted-foreground text-sm">{t(project.descriptionKey)}</p>
+                          <div className="flex flex-wrap gap-2 pt-2">
+                            {project.technologies.map((tech) => (
+                              <Badge key={tech} variant="outline">{tech}</Badge>
+                            ))}
+                          </div>
                         </div>
-                        {/*<div className="flex gap-2 pt-4">
-                          <Button variant="outline" size="sm" className="gap-1">
-                            <Github className="h-4 w-4" />
-                            {t("code")}
-                          </Button>
-                          <Button variant="outline" size="sm" className="gap-1">
-                            <ExternalLink className="h-4 w-4" />
-                            {t("demo")}
-                          </Button>
-                        </div>*/}
-                      </div>
-                    </CardContent>
-                  </Card>
+                      </CardContent>
+                    </Card>
+                  </FadeIn>
+                ))}
+              </div>
 
-                  <Card className="overflow-hidden h-full">
-                    <ProjectCarousel
-                      media={[
-                        { type: "image", src: "/portfolio/portfolio.png?height=200&width=400&text=API+Documentation" },
-                        { type: "image", src: "/portfolio/404.png?height=200&width=400&text=API+Documentation" },
-                        { type: "image", src: "/portfolio/page.png?height=200&width=400&text=API+Documentation" },
-                        { type: "image", src: "/portfolio/layout.png?height=200&width=400&text=API+Documentation" },
-                        { type: "image", src: "/portfolio/language.png?height=200&width=400&text=API+Documentation" },
-                        { type: "image", src: "/portfolio/fade.png?height=200&width=400&text=API+Documentation" },
-                        { type: "image", src: "/portfolio/video.png?height=200&width=400&text=API+Documentation" },
-                        { type: "image", src: "/portfolio/carousel.png?height=200&width=400&text=API+Documentation" },
-                        { type: "video", src: "/portfolio/portfolio.mp4", poster: "/portfolio/portfolio.png?height=200&width=400&text=tetet", 
-                        },
-                      ]}
-                      alt="Portfolio"
-                      autoPlayInterval={3000} // 3 segundos para imagens
-                      videoDuration={5000} // 5 segundos para vídeos
-                    />
-                    <CardContent className="p-6">
-                      <div className="space-y-2">
-                        <h3 className="text-xl font-bold">{t("restful_api")}</h3>
-                        <span className="text-xs">{t("api_subdescription")}</span>
-                        <p className="text-muted-foreground text-sm">{t("api_description")}</p>
-                        <div className="flex flex-wrap gap-2 pt-2">
-                          <Badge variant="outline">React</Badge>
-                          <Badge variant="outline">Next.Js</Badge>
-                          <Badge variant="outline">Tailwind</Badge>
-                          <Badge variant="outline">TypeScript</Badge>
-                          <Badge variant="outline">Framer Motion</Badge>
-                        </div>
-                        {/*
-                        <div className="flex gap-2 pt-4">
-                          <Button variant="outline" size="sm" className="gap-1">
-                            <Github className="h-4 w-4" />
-                            {t("code")}
-                          </Button>
-                          <Button variant="outline" size="sm" className="gap-1">
-                            <ExternalLink className="h-4 w-4" />
-                            {t("demo")}
-                          </Button>
-                        </div>
-                        */}
-                      </div>
-                    </CardContent>
-                  </Card>
-
-
-                  <Card className="overflow-hidden h-full">
-                    <ProjectCarousel
-                      media={[
-                        { type: "image", src: "/barberlab/home.png?height=200&width=400&text=Cadastro TypeBot" },
-                        { type: "image", src: "/barberlab/home2.png?height=200&width=400&text=Cadastro TypeBot" },
-                        { type: "image", src: "/barberlab/home3.png?height=200&width=400&text=Cadastro TypeBot" },
-                        { type: "image", src: "/barberlab/mobilehome.png?height=200&width=400&text=Cadastro TypeBot" },
-                        { type: "image", src: "/barberlab/master.png?height=200&width=400&text=Cadastro TypeBot" },
-                        { type: "image", src: "/barberlab/listauser.png?height=200&width=400&text=Cadastro TypeBot" },
-                        { type: "image", src: "/barberlab/service.png?height=200&width=400&text=Cadastro TypeBot" },
-                        { type: "image", src: "/barberlab/agendamento.png?height=200&width=400&text=Cadastro TypeBot" },
-                        { type: "image", src: "/barberlab/relatorio.png?height=200&width=400&text=Cadastro TypeBot" },
-                        { type: "image", src: "/barberlab/config.png?height=200&width=400&text=Cadastro TypeBot" },
-                        { type: "image", src: "/barberlab/configpreview.png?height=200&width=400&text=Cadastro TypeBot" },
-                        { type: "image", src: "/barberlab/configgaleria.png?height=200&width=400&text=Cadastro TypeBot" },
-                        { type: "image", src: "/barberlab/informacoes.png?height=200&width=400&text=Cadastro TypeBot" },
-                        { type: "image", src: "/barberlab/servicossite.png?height=200&width=400&text=Cadastro TypeBot" },
-                        { type: "image", src: "/barberlab/mobilemaster.png?height=200&width=400&text=Cadastro TypeBot" },
-                        { type: "image", src: "/barberlab/cliente.png?height=200&width=400&text=Cadastro TypeBot" },
-                        { type: "image", src: "/barberlab/mobilecliente.png?height=200&width=400&text=Cadastro TypeBot" },
-                        { type: "video", src: "/barberlab/BarberLab.mp4", poster: "/barberlab/home.png?height=200&width=400&text=tetet",
-                        },
-                      ]}
-                      alt="TechDente"
-                      autoPlayInterval={3000} // 3 segundos para imagens
-                      videoDuration={5000} // 5 segundos para vídeos
-                    />
-                    <CardContent className="p-6">
-                      <div className="space-y-2">
-                        <h3 className="text-xl font-bold">{t("barber_system")}</h3>
-                        <span className="text-xs">{t("barber_subdescription")}</span>
-                        <p className="text-muted-foreground text-sm">{t("barber_description")}</p>
-                        <div className="flex flex-wrap gap-2 pt-2">
-                          <Badge variant="outline">React</Badge>
-                          <Badge variant="outline">Supabase</Badge>
-                          <Badge variant="outline">Tailwind</Badge>
-                          <Badge variant="outline">NextJs</Badge>
-                          <Badge variant="outline">Shadcn</Badge>
-                          <Badge variant="outline">TypeScript</Badge>
-                        </div>
-                        {/*<div className="flex gap-2 pt-4">
-                          <Button variant="outline" size="sm" className="gap-1">
-                            <Github className="h-4 w-4" />
-                            {t("code")}
-                          </Button>
-                          <Button variant="outline" size="sm" className="gap-1">
-                            <ExternalLink className="h-4 w-4" />
-                            {t("demo")}
-                          </Button>
-                        </div>*/}
-                      </div>
-                    </CardContent>
-                  </Card>
-
-
-                  <Card className="overflow-hidden h-full">
-                    <ProjectCarousel
-                      media={[
-                        { type: "image", src: "/driverapp/login.png?height=200&width=400&text=driverapp" },
-                        { type: "image", src: "/driverapp/home.png?height=200&width=400&text=driverapp" },
-                        { type: "image", src: "/driverapp/dropprofile.png?height=200&width=400&text=driverapp" },
-                        { type: "image", src: "/driverapp/profile.png?height=200&width=400&text=driverapp" },
-                        { type: "image", src: "/driverapp/goals.png?height=200&width=400&text=driverapp" },
-                        { type: "image", src: "/driverapp/trips.png?height=200&width=400&text=driverapp" },
-                        { type: "image", src: "/driverapp/timer.png?height=200&width=400&text=driverapp" },
-                        { type: "image", src: "/driverapp/reports.png?height=200&width=400&text=driverapp" },
-                        { type: "image", src: "/driverapp/homemobile.png?height=200&width=400&text=driverapp" },
-                        { type: "image", src: "/driverapp/profilemobile.png?height=200&width=400&text=driverapp" },
-                        { type: "image", src: "/driverapp/tripsmobile.png?height=200&width=400&text=driverapp" },
-                        { type: "image", src: "/driverapp/goalsmobile.png?height=200&width=400&text=driverapp" },
-                        { type: "image", src: "/driverapp/reportsmobile.png?height=200&width=400&text=driverapp" },
-                        { type: "image", src: "/driverapp/vs1.png?height=200&width=400&text=driverapp" },
-                        { type: "video", src: "/driverapp/driverapp.mp4", poster: "/driverapp/login.png?height=200&width=400&text=driverapp",
-                        },
-                      ]}
-                      alt="DriverApp"
-                      autoPlayInterval={3000} // 3 segundos para imagens
-                      videoDuration={5000} // 5 segundos para vídeos
-                    />
-                    <CardContent className="p-6">
-                      <div className="space-y-2">
-                        <h3 className="text-xl font-bold">{t("driver_system")}</h3>
-                        <span className="text-xs">{t("driver_subdescription")}</span>
-                        <p className="text-muted-foreground text-sm">{t("driver_description")}</p>
-                        <div className="flex flex-wrap gap-2 pt-2">
-                          <Badge variant="outline">React</Badge>
-                          <Badge variant="outline">Supabase</Badge>
-                          <Badge variant="outline">Tailwind</Badge>
-                          <Badge variant="outline">NextJs</Badge>
-                          <Badge variant="outline">TypeScript</Badge>
-                        </div>
-                        {/*<div className="flex gap-2 pt-4">
-                          <Button variant="outline" size="sm" className="gap-1">
-                            <Github className="h-4 w-4" />
-                            {t("code")}
-                          </Button>
-                          <Button variant="outline" size="sm" className="gap-1">
-                            <ExternalLink className="h-4 w-4" />
-                            {t("demo")}
-                          </Button>
-                        </div>*/}
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  <Card className="overflow-hidden h-full">
-                    <ProjectCarousel
-                      media={[
-                        { type: "image", src: "/pibpe/home.png?height=200&width=400&text=PIBPE" },
-                        { type: "image", src: "/pibpe/agenda.png?height=200&width=400&text=PIBPE" },
-                        { type: "image", src: "/pibpe/anuncios.png?height=200&width=400&text=PIBPE" },
-                        { type: "image", src: "/pibpe/historia.png?height=200&width=400&text=PIBPE" },
-                        { type: "image", src: "/pibpe/pedido.png?height=200&width=400&text=PIBPE" },
-                        { type: "image", src: "/pibpe/contato.png?height=200&width=400&text=PIBPE" },
-                        { type: "image", src: "/pibpe/admin.png?height=200&width=400&text=PIBPE" },
-                        { type: "image", src: "/pibpe/dashadmin.png?height=200&width=400&text=PIBPE" },
-                        { type: "image", src: "/pibpe/homemobile.png?height=200&width=400&text=PIBPE" },
-                        { type: "image", src: "/pibpe/anunciosmobile.png?height=200&width=400&text=PIBPE" },
-                        { type: "image", src: "/pibpe/pedidomobile.png?height=200&width=400&text=PIBPE" },
-                        { type: "image", src: "/pibpe/contatomobile.png?height=200&width=400&text=PIBPE" },
-                        { type: "image", src: "/pibpe/vscode.png?height=200&width=400&text=PIBPE" },
-                        { type: "video", src: "/pibpe/pibpe.mp4", poster: "/pibpe/login.png?height=200&width=400&text=PIBPE",
-                        },
-                      ]}
-                      alt="PIBPE"
-                      autoPlayInterval={3000} // 3 segundos para imagens
-                      videoDuration={5000} // 5 segundos para vídeos
-                    />
-                    <CardContent className="p-6">
-                      <div className="space-y-2">
-                        <h3 className="text-xl font-bold">{t("pibpe_system")}</h3>
-                        <span className="text-xs">{t("pibpe_subdescription")}</span>
-                        <p className="text-muted-foreground text-sm">{t("pibpe_description")}</p>
-                        <div className="flex flex-wrap gap-2 pt-2">
-                          <Badge variant="outline">React</Badge>
-                          <Badge variant="outline">Supabase</Badge>
-                          <Badge variant="outline">Tailwind</Badge>
-                          <Badge variant="outline">NextJs</Badge>
-                          <Badge variant="outline">TypeScript</Badge>
-                        </div>
-                        {/*<div className="flex gap-2 pt-4">
-                          <Button variant="outline" size="sm" className="gap-1">
-                            <Github className="h-4 w-4" />
-                            {t("code")}
-                          </Button>
-                          <Button variant="outline" size="sm" className="gap-1">
-                            <ExternalLink className="h-4 w-4" />
-                            {t("demo")}
-                          </Button>
-                        </div>*/}
-                      </div>
-                    </CardContent>
-                  </Card> 
-                  
-                </ProjectsCarousel>
-
-              {/*
-              <FadeIn delay={0.6}>
-                <div className="flex justify-center pt-6">
-                  <Button variant="outline">{t("view_all_projects")}</Button>
-                </div>
-              </FadeIn>*/}
+              {/* Botão Ver Mais / Ver Menos */}
+              {projectsData.length > initialProjectsCount && (
+                <FadeIn delay={0.6}>
+                  <div className="flex justify-center pt-6">
+                    <Button
+                      onClick={() => setShowAllProjects(!showAllProjects)}
+                      variant="outline"
+                      size="lg"
+                      className="gap-2 hover:bg-emerald-50 hover:text-emerald-600 hover:border-emerald-600 transition-all duration-300 transform hover:scale-105 active:scale-95"
+                    >
+                      {showAllProjects ? (
+                        <>
+                          <ChevronUp className="h-4 w-4" />
+                          {t("show_less")}
+                        </>
+                      ) : (
+                        <>
+                          <ChevronDown className="h-4 w-4" />
+                          {t("show_more")}
+                        </>
+                      )}
+                    </Button>
+                  </div>
+                </FadeIn>
+              )}
             </div>
           </FadeIn>
         </section>
@@ -687,6 +413,7 @@ export default function PortfolioPage() {
             </div>
           </FadeIn>
         </section>
+        
         {/* Contact Section */}
         <section id="contact" className="py-12 border-t scroll-mt-24">
           <FadeIn>
@@ -865,7 +592,7 @@ export default function PortfolioPage() {
                 <Github className="h-5 w-5" />
                 <span className="sr-only">GitHub</span>
               </a>
-                <a 
+              <a 
                 href="https://www.linkedin.com/in/cleverson-davi/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -886,7 +613,20 @@ export default function PortfolioPage() {
           </div>
         </FadeIn>
       </footer>
+
+      {/* Fullscreen Carousel Modal */}
+      {selectedProject && (
+        <FullscreenCarousel
+          media={selectedProject.media}
+          isOpen={isCarouselOpen}
+          onClose={() => {
+            setIsCarouselOpen(false)
+            setSelectedProject(null)
+          }}
+          autoPlayInterval={3000}
+          videoDuration={5000}
+        />
+      )}
     </div>
   )
 }
-

@@ -74,6 +74,10 @@ const translations = {
     code: "Code",
     demo: "Demo",
     view_all_projects: "View All Projects",
+    view_details: "View Details",
+    show_more: "Show More Projects",
+    show_less: "Show Less",
+    
 
     // Experience
     work_experience: "Work Experience",
@@ -200,7 +204,9 @@ const translations = {
 
     code: "Código",
     demo: "Demo",
-    view_all_projects: "Ver Todos os Projetos",
+    view_details: "Ver Detalhes",
+    show_more: "Ver Mais Projetos",
+    show_less: "Ver Menos",
 
     // Experience
     work_experience: "Experiência Profissional",
