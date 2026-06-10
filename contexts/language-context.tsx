@@ -71,6 +71,14 @@ const translations = {
     pibpe_subdescription: "First Baptist Church in Parque Estoril",
     pibpe_description: "Developed a website for the First Baptist Church in Parque Estoril, providing a modern and functional platform for the community. The site features information on events and ministries, along with an admin panel that allows the church team to easily manage content and keep members informed.",
 
+    finapp_system: "FinApp",
+    finapp_subdescription: "Financial Management App",
+    finapp_description: "Developed a financial management application to help users track their expenses, income, and investments. The app features a clean interface, real-time data synchronization, and comprehensive reporting capabilities.",
+
+    holytune_system: "HolyTune",
+    holytune_subdescription: "Musician Management Application",
+    holytune_description: "A complete platform for managing musicians and musical teams. With it, you can create and organize events, assemble repertoires, control participant attendance, and manage users with different access levels.",
+
     code: "Code",
     demo: "Demo",
     view_all_projects: "View All Projects",
@@ -202,6 +210,15 @@ const translations = {
     pibpe_system: "PIBPE",
     pibpe_subdescription: "Primeira Igreja Batista em Parque Estoril",
     pibpe_description: "Desenvolvi um site para a PIBPE, oferecendo uma plataforma moderna e funcional para a organização. O sistema inclui informações sobre eventos e ministérios, além de um painel administrativo que permite à equipe gerenciar conteúdos e manter os membros informados.",
+
+    finapp_system: "FinApp",
+    finapp_subdescription: "App de Gestão Financeira",
+    finapp_description: "Desenvolvi um aplicativo de gestão financeira para ajudar os usuários a rastrear seus gastos, receitas e investimentos. O app apresenta uma interface limpa, sincronização de dados em tempo real e capacidades de relatórios abrangentes.",
+
+    holytune_system: "HolyTune",
+    holytune_subdescription: "App de Gestão de Músicos",
+    holytune_description: "Plataforma completa para gestão de músicos e equipes musicais. Com ela é possível criar e organizar eventos, montar repertórios, controlar presença dos participantes e gerenciar usuários com diferentes níveis de acesso.",
+
 
     code: "Código",
     demo: "Demo",
