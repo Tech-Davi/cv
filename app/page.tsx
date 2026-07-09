@@ -163,8 +163,14 @@ export default function PortfolioPage() {
                           TypeScript
                         </Badge>
                         <Badge variant="secondary" className="bg-emerald-50 text-emerald-700 hover:bg-emerald-100 transform transition duration-200 hover:scale-110 cursor-default">
-                          NodeJs
-                        </Badge>                             
+                          Node.js
+                        </Badge>
+                        <Badge variant="secondary" className="bg-emerald-50 text-emerald-700 hover:bg-emerald-100 transform transition duration-200 hover:scale-110 cursor-default">
+                          Fastify
+                        </Badge>
+                        <Badge variant="secondary" className="bg-emerald-50 text-emerald-700 hover:bg-emerald-100 transform transition duration-200 hover:scale-110 cursor-default">
+                          Express
+                        </Badge>
                         <Badge variant="secondary" className="bg-emerald-50 text-emerald-700 hover:bg-emerald-100 transform transition duration-200 hover:scale-110 cursor-default">
                           React
                         </Badge>
@@ -172,7 +178,7 @@ export default function PortfolioPage() {
                           Next.js
                         </Badge>
                         <Badge variant="secondary" className="bg-emerald-50 text-emerald-700 hover:bg-emerald-100 transform transition duration-200 hover:scale-110 cursor-default">
-                          PHP
+                          Socket.IO
                         </Badge>
                       </div>
                     </CardContent>
@@ -191,14 +197,17 @@ export default function PortfolioPage() {
                           PostgreSQL
                         </Badge>
                         <Badge variant="secondary" className="bg-emerald-50 text-blue-700 hover:bg-blue-100 transform transition duration-200 hover:scale-110 cursor-default">
+                          PostGIS
+                        </Badge>
+                        <Badge variant="secondary" className="bg-emerald-50 text-blue-700 hover:bg-blue-100 transform transition duration-200 hover:scale-110 cursor-default">
                           Prisma
-                        </Badge>    
+                        </Badge>
                         <Badge variant="secondary" className="bg-emerald-50 text-blue-700 hover:bg-blue-100 transform transition duration-200 hover:scale-110 cursor-default">
                           MongoDB
-                        </Badge>                    
+                        </Badge>
                         <Badge variant="secondary" className="bg-emerald-50 text-blue-700 hover:bg-blue-100 transform transition duration-200 hover:scale-110 cursor-default">
                           MySQL
-                        </Badge>                                             
+                        </Badge>
                       </div>
                     </CardContent>
                   </Card>
@@ -211,9 +220,12 @@ export default function PortfolioPage() {
                         <Server className="h-8 w-8 text-emerald-600" />
                         <h3 className="text-xl font-bold">{t("devops_others")}</h3>
                       </div>
-                      <div className="flex item-center gap-2">
+                      <div className="flex flex-wrap gap-2">
                         <Badge variant="secondary" className="bg-emerald-50 text-purple-700 hover:bg-purple-100 transform transition duration-200 hover:scale-110 cursor-default">
                           Docker
+                        </Badge>
+                        <Badge variant="secondary" className="bg-emerald-50 text-purple-700 hover:bg-purple-100 transform transition duration-200 hover:scale-110 cursor-default">
+                          Coolify
                         </Badge>
                         <Badge variant="secondary" className="bg-emerald-50 text-purple-700 hover:bg-purple-100 transform transition duration-200 hover:scale-110 cursor-default">
                           Git
@@ -223,6 +235,9 @@ export default function PortfolioPage() {
                         </Badge>
                         <Badge variant="secondary" className="bg-emerald-50 text-purple-700 hover:bg-purple-100 transform transition duration-200 hover:scale-110 cursor-default">
                           Tailwind
+                        </Badge>
+                        <Badge variant="secondary" className="bg-emerald-50 text-purple-700 hover:bg-purple-100 transform transition duration-200 hover:scale-110 cursor-default">
+                          Turborepo
                         </Badge>
                       </div>
                     </CardContent>
@@ -237,19 +252,19 @@ export default function PortfolioPage() {
                   <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto cursor-default">
                     <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">JavaScript</Badge>
                     <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">Postman</Badge>
-                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">MongoDB</Badge>
+                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">Swagger/OpenAPI</Badge>
                     <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">JWT</Badge>
-                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">Express</Badge>
+                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">Bcrypt</Badge>
                     <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">Zod</Badge>
                     <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">Cors</Badge>
-                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">Bcrypt</Badge>
                     <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">Bootstrap</Badge>
-                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">jQuery</Badge>
-                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">AJAX</Badge>
-                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">Apache</Badge>
-                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">React</Badge>
-                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">PHPMyAdmin</Badge>
-                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">Git</Badge>
+                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">React Leaflet</Badge>
+                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">pnpm Workspaces</Badge>
+                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">AWS S3</Badge>
+                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">Cloudflare R2</Badge>
+                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">WebSocket</Badge>
+                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">IoT Protocols</Badge>
+                    <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">VPS Linux</Badge>
                     <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">Framer-Motion</Badge>
                     <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">TypeBot</Badge>
                     <Badge variant="outline" className="hover:bg-muted transform transition duration-200 hover:scale-110">EvolutionAPI</Badge>
